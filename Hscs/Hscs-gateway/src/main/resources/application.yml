@@ -1,0 +1,61 @@
+server:
+  port: 8250
+
+spring:
+  application:
+    name: hscs-gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+      - id: service-auth
+        uri: lb://service-auth
+        predicates:
+        - Path=/*/acl/** # 路径匹配
+
+      - id: service-education
+        uri: lb://service-education
+        predicates:
+        - Path=/edu/** # 业务服务
+
+      - id: service-infopush
+        uri: lb://service-infopush
+        predicates:
+        - Path=/infopush/** # 信息更新
+
+      - id: service-message
+        uri: lb://service-message
+        predicates:
+        - Path=/message/** # 短信发送
+
+      - id: service-order
+        uri: lb://service-order
+        predicates:
+        - Path=/eduorder/** # 订单生成
+
+      - id: service-ossupload
+        uri: lb://service-ossupload
+        predicates:
+        - Path=/ossupload/** # 图片上传
+
+      - id: service-statistics
+        uri: lb://service-statistics
+        predicates:
+        - Path=/statistics/** # 统计分析
+
+      - id: service-usercenter
+        uri: lb://service-usercenter
+        predicates:
+        - Path=/usercenter/**,/api/** ,/websocket/**,/ws/**
+
+
+      - id: service-videoupload
+        uri: lb://service-videoupload
+        predicates:
+        - Path=/videoupload/**  #视频点播
+#
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848

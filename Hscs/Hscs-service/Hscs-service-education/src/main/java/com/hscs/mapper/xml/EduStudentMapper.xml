@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hscs.mapper.EduStudentMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.hscs.entity.EduStudent">
+        <id column="id" property="id" />
+        <result column="name" property="name" />
+        <result column="gender" property="gender" />
+        <result column="birthday" property="birthday" />
+        <result column="idcard" property="idcard" />
+        <result column="parent_name" property="parentName" />
+        <result column="parent_idcard" property="parentIdcard" />
+        <result column="nation" property="nation" />
+        <result column="native_place" property="nativePlace" />
+        <result column="politic" property="politic" />
+        <result column="phone" property="phone" />
+        <result column="address" property="address" />
+        <result column="begin_date" property="beginDate" />
+        <result column="student_number" property="studentNumber" />
+        <result column="class_name" property="className" />
+        <result column="teacher_name" property="teacherName" />
+        <result column="teacher_phone" property="teacherPhone" />
+        <result column="is_delete" property="isDelete" />
+        <result column="gmt_create" property="gmtCreate" />
+        <result column="gmt_modified" property="gmtModified" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, name, gender, birthday, idcard, parent_name, parent_idcard, nation, native_place, politic, phone, address, begin_date, student_number, class_name, teacher_name, teacher_phone, is_delete, gmt_create, gmt_modified
+    </sql>
+
+</mapper>

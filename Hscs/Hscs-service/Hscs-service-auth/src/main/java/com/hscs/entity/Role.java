@@ -1,0 +1,59 @@
+package com.hscs.entity;
+
+import com.baomidou.mybatisplus.annotation.*;
+
+import java.time.LocalDateTime;
+import java.io.Serializable;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.experimental.Accessors;
+
+/**
+ * <p>
+ *
+ * </p>
+ *
+ * @author Painter
+ * @since 2021-03-11
+ */
+@Data
+@EqualsAndHashCode(callSuper = false)
+@Accessors(chain = true)
+@TableName("acl_role")
+@ApiModel(value="Role对象", description="")
+public class Role implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
+    @ApiModelProperty(value = "角色id")
+    @TableId(value = "id", type = IdType.ID_WORKER_STR)
+    private String id;
+
+    @ApiModelProperty(value = "角色名称")
+    @TableField("role_name")
+    private String roleName;
+
+    @ApiModelProperty(value = "角色编码")
+    @TableField("role_code")
+    private String roleCode;
+
+    @ApiModelProperty(value = "备注")
+    private String remark;
+
+    @ApiModelProperty(value = "逻辑删除 1（true）已删除， 0（false）未删除")
+    @TableField("is_deleted")
+    @TableLogic
+    private Integer isDeleted;
+
+    @ApiModelProperty(value = "创建时间")
+    @TableField(value = "gmt_create",fill = FieldFill.INSERT)
+    private LocalDateTime gmtCreate;
+
+    @ApiModelProperty(value = "更新时间")
+    @TableField(value = "gmt_modified",fill = FieldFill.INSERT_UPDATE)
+    private LocalDateTime gmtModified;
+
+
+}
